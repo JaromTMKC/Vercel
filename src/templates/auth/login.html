@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='content/login.css') }}">
+    <title>A. V. Inicio de Sesión | FIISI</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-in">
+            <form method="POST">
+                <h1>Iniciar Sesión</h1>
+                <br>
+                {% with messages = get_flashed_messages() %}
+                {%if messages%}
+                {% for message in messages %}
+                <div class='mess'>{{ message }}</div>
+                {% endfor %}
+                {%endif%}
+                {% endwith %}
+                <input type="email" placeholder="E-Mail" name="correo">
+                <input type="password" placeholder="Contraseña" name="password">
+                <a href="#">Olvidé mi contraseña</a>
+                <button type="submit" name="ingreso" value=" ">Iniciar Sesión</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='img/Logo_UNJFSC.png') }}" alt="">
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Bienvenido al FIISI</h1>
+                    <p>
+                        Coloca tus credenciales de inicio de sesión para obtener acceso al nuevo y mejorado aula virtual
+                        😉
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/login.js') }}"></script>
+</body>
+</html>
